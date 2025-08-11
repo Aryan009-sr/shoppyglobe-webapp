@@ -17,10 +17,10 @@ const Footer = () => {
               <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase">Follow us</h2>
               <ul className="text-gray-500 font-medium">
                 <li className="mb-4">
-                  <a href="#" className="hover:underline">Github</a>
+                  <a href="https://github.com/Aryan009-sr/shoppyglobe-webapp.git" className="hover:underline">Github</a>
                 </li>
                 <li>
-                  <a href="#" className="hover:underline">Twitter</a>
+                  <a href="#" className="hover:underline">Instagram</a>
                 </li>
               </ul>
             </div>

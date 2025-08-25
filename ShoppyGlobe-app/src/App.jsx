@@ -2,6 +2,7 @@ import React, { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/footer';
+import { Toaster } from 'react-hot-toast';
 
 // Lazy load the components for code splitting
 const Cart = lazy(() => import('./components/Cart'));
@@ -27,6 +28,7 @@ function App() {
           </Suspense>
         </main>
         <Footer/>
+        <Toaster/>
       </div>
     </Router>
   );

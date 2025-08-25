@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { addToCart } from '../redux/cartSlice';
+import toast from 'react-hot-toast';
 
 const ProductItem = ({ product }) => {
   const dispatch = useDispatch();
@@ -9,8 +10,10 @@ const ProductItem = ({ product }) => {
   const handleAddToCart = (e) => {
     e.preventDefault();
     dispatch(addToCart(product));
+    toast.success(`${product.title} added to cart!`);
   };
 
+  
   return (
     <div className="bg-white rounded-lg shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-300 overflow-hidden border border-gray-200 hover:border-blue-800">
       <Link to={`/products/${product.id}`} className="block">

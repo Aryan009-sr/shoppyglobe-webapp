@@ -11,19 +11,28 @@ const ProductDetail = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    let isMounted = true;
     const fetchProduct = async () => {
       try {
         const response = await fetch(`https://dummyjson.com/products/${id}`);
         if (!response.ok) throw new Error('Product not found.');
         const data = await response.json();
-        setProduct(data);
-        setLoading(false);
+        if (isMounted) {
+          setProduct(data);
+          setLoading(false);
+        }
       } catch (err) {
-        setError(err.message);
-        setLoading(false);
+        if(isMounted){
+          setError(err.message);
+          setLoading(false);
+        }
       }
     };
     fetchProduct();
+    //Cleanup function to prevent state updates on unmounted component
+    return () => {
+      isMounted = false;
+    };
   }, [id]);
 
   const handleAddToCart = () => {
